@@ -1,0 +1,29 @@
+{
+    "manifest_version": 3,
+    "name": "ThreatEye",
+    "version": "1.0",
+    "description": "Real-time scam detection for web messaging.",
+    "permissions": [
+        "storage",
+        "tabs",
+        "scripting"
+    ],
+    "host_permissions": [
+        "https://web.whatsapp.com/*",
+        "http://localhost:3000/*"
+    ],
+    "background": {
+        "service_worker": "background.js"
+    },
+    "content_scripts": [
+        {
+            "matches": [
+                "https://web.whatsapp.com/*"
+            ],
+            "js": [
+                "content.js"
+            ],
+            "run_at": "document_idle"
+        }
+    ]
+}
